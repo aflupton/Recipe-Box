@@ -4,16 +4,33 @@
       Welcome to {{userName}}'s {{title}} for {{month}}/{{day}}/{{year}}:
     </h2>
     <h4>• {{subtitle}} •</h4>
-    <img width="500" alt="Turkish Salad" src="./assets/img/tabouleh.jpg">
-    <img width="500" alt="Meatballs" src="./assets/img/meatballs.jpg" >
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="./assets/img/tabouleh.jpg" alt="Tabouleh">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="./assets/img/beef.jpg" alt="Salad">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="./assets/img/meatballs.jpg" alt="Meatballs">
+        </div>
+      </div>
+    </div>
   </div>
+
   <div id="bodyText">
     <table class="table">
       <thead>
         <tr>
           <th>Recipe Category</th>
           <th>Recipe Name</th>
-          <th>Prep + Cook Time</th>
+          <th>Cook Time</th>
           <th>Serves</th>
           <th>Stars</th>
           <th>Actions</th>
@@ -29,12 +46,30 @@
           <td
           [class]="starColor(currentSoup)">{{currentSoup.stars}}</td>
           <td>
-            <button class="btn" (click)="editRecipe()">Update</button>
-            <hr>
-            <button class="btn" (click)="addRecipe()">Add a new recipe</button>
+            <button class="btn btn-light" (click)="editSoup(currentSoup)">Update This Item</button>
           </td>
         </tr>
-        <hr>
+        <tr class="editRecipes">
+          <td></td>
+          <td class="form-group">
+            <label>{{currentSoup.soupTitle}}</label>
+            <label>Edit name</label>
+            <input [(ngModel)]="selectedSoup.description" class="w-100 form-control" type="text" name="name">
+          </td>
+          <td class="form-grotup">
+            <label>Edit prep time</label>
+            <input [(ngModel)]="selectedSoup.prepTime" class="w-100 form-control" type="text" name="prep">
+          </td>
+          <td class="form-group">
+            <label>Edit serves</label>
+            <input [(ngModel)]="selectedSoup.servesNumber" class="w-100 form-control" type="text" name="serves">
+          </td>
+          <td class="form-group">
+            <label>Edit star rating</label>
+            <input class="form-control" type="text" name="stars">
+          </td>
+        </tr>
+        <br>
         <tr *ngFor="let currentMeat of meats">
           <h5>{{meatTitle}}</h5>
           <td><a href="#">{{currentMeat.description}}</a></td>
@@ -43,42 +78,60 @@
           <td
           [class]="starColor(currentMeat)">{{currentMeat.stars}}</td>
           <td>
-            <button class="btn" (click)="editRecipe()">Update</button>
-            <hr>
-            <button class="btn" (click)="addRecipe()">Add a new recipe</button>
+            <button class="btn btn-light" (click)="editMeat(currentMeat)">Update This Item</button>
           </td>
         </tr>
-        <hr>
+        <tr class="editRecipes">
+          <td></td>
+          <td class="form-group">
+            <label>Edit name</label>
+            <input [(ngModel)]="selectedMeat.description" class="w-100 form-control" type="text" name="name">
+          </td>
+          <td class="form-group">
+            <label>Edit prep time</label>
+            <input [(ngModel)]="selectedMeat.prepTime" class="w-100 form-control" type="text" name="prep">
+          </td>
+          <td class="form-group">
+            <label>Edit serves</label>
+            <input [(ngModel)]="selectedMeat.servesNumber" class="w-100 form-control" type="text" name="serves">
+          </td>
+          <td class="form-group">
+            <label>Edit star rating</label>
+            <input [(ngModel)]="selectedMeat.stars" class="w-100 form-control" type="text" name="stars">
+          </td>
+        </tr>
+        <br>
         <tr *ngFor="let currentSalad of salads">
           <h5>{{saladTitle}}</h5>
           <td><a href="#">{{currentSalad.description}}</a></td>
           <td>{{currentSalad.prepTime}}</td>
-          <td>People: {{currentSalad.servesNumber}}</td>
+          <td>{{currentSalad.servesNumber}}</td>
           <td [class]="starColor(currentSalad)">{{currentSalad.stars}}</td>
           <td>
-            <button class="btn" (click)="editRecipe()">Update</button>
-            <hr>
-            <button class="btn" (click)="addRecipe()">Add a new recipe</button>
+            <button class="btn btn-light" (click)="editSalad(currentSalad)">Update This Item</button>
           </td>
         </tr>
-        <hr>
+        <tr class="editRecipes">
+          <td></td>
+          <td class="form-group">
+            <label>Edit recipe name</label>
+            <input [(ngModel)]="selectedSalad.description" class="w-100 form-control" type="text" name="name">
+          </td>
+          <td class="form-group">
+            <label>Edit prep time</label>
+            <input [(ngModel)]="selectedSalad.prepTime" class="w-100 form-control" type="text" name="prep">
+          </td>
+          <td class="form-group">
+            <label>Edit serves</label>
+            <input [(ngModel)]="selectedSalad.servesNumber" class="w-100 form-control" type="text" name="serves">
+          </td>
+          <td class="form-group">
+            <label>Edit star rating</label>
+            <input [(ngModel)]="selectedSalad.stars" class="w-100 form-control" type="text" name="stars">
+          </td>
+        </tr>
       </tbody>
     </table>
-    </div>
-    <div>
-    <!-- <form class="form-group">
-      <label for="soups">Enter a new soup recipe</label>
-      <input class="form-control" id="soups" type="text">
-      <br>
-      <label for="meats">Enter a new meat recipe</label>
-      <input class="form-control" id="meats" type="text">
-      <br>
-      <label for="salads">Enter a new salad recipe</label>
-      <input class="form-control" id="salads" type="text">
-      <br>
-      <br>
-      <button class="btn btn-secondary" type="submit" name="button">Submit</button>
-    </form> -->
   </div>
   <div class="footer">
     <p>© Andrew Lupton, 2018</p>
