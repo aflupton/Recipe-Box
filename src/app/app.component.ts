@@ -26,7 +26,7 @@ export class AppComponent {
   meats: Meat[] = [
     new Meat('"Spicy Kreuzberg" lamb kebab (Berliner-style)', '1 hour', 4),
     new Meat('Moroccan lamb shanks with pomegranate sauce', '5 hours', 4),
-    new Meat('Boeuf Bourguignon with pasta', '2 hours', 6)
+    new Meat('French Boeuf Bourguignon with pasta', '2 hours', 6)
   ];
   saladTitle = 'Salads';
   salads: Salad[] = [
