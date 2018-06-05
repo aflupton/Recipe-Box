@@ -1,13 +1,13 @@
 <div class="container">
   <div style="text-align:center">
-    <h1 class="display-2">
+    <h2 class="display-3">
       Welcome to {{userName}}'s {{title}} for {{month}}/{{day}}/{{year}}:
-    </h1>
+    </h2>
     <h4>• {{subtitle}} •</h4>
-    <img width="600" alt="Turkish Salad" src="./assets/img/tabouleh.jpg">
-    <img width="600" alt="Meatballs" src="./assets/img/meatballs.jpg" >
+    <img width="500" alt="Turkish Salad" src="./assets/img/tabouleh.jpg">
+    <img width="500" alt="Meatballs" src="./assets/img/meatballs.jpg" >
   </div>
-  <div class="col-6" id="bodyText">
+  <div id="bodyText">
     <table class="table">
       <thead>
         <tr>
@@ -15,35 +15,57 @@
           <th>Recipe Name</th>
           <th>Prep + Cook Time</th>
           <th>Serves</th>
+          <th>Stars</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <hr>
       <tbody>
         <tr *ngFor="let currentSoup of soups">
-          <h3>{{soupTitle}}</h3>
+          <h5>{{soupTitle}}</h5>
           <td><a href="#">{{currentSoup.description}}</a></td>
           <td>{{currentSoup.prepTime}}</td>
           <td>People: {{currentSoup.servesNumber}}</td>
+          <td
+          [class]="starColor(currentSoup)">{{currentSoup.stars}}</td>
+          <td>
+            <button class="btn" (click)="editRecipe()">Update</button>
+            <hr>
+            <button class="btn" (click)="addRecipe()">Add a new recipe</button>
+          </td>
         </tr>
         <hr>
         <tr *ngFor="let currentMeat of meats">
-          <h3>{{meatTitle}}</h3>
+          <h5>{{meatTitle}}</h5>
           <td><a href="#">{{currentMeat.description}}</a></td>
           <td>{{currentMeat.prepTime}}</td>
           <td>People: {{currentMeat.servesNumber}}</td>
+          <td
+          [class]="starColor(currentMeat)">{{currentMeat.stars}}</td>
+          <td>
+            <button class="btn" (click)="editRecipe()">Update</button>
+            <hr>
+            <button class="btn" (click)="addRecipe()">Add a new recipe</button>
+          </td>
         </tr>
         <hr>
         <tr *ngFor="let currentSalad of salads">
-          <h3>{{saladTitle}}</h3>
+          <h5>{{saladTitle}}</h5>
           <td><a href="#">{{currentSalad.description}}</a></td>
           <td>{{currentSalad.prepTime}}</td>
           <td>People: {{currentSalad.servesNumber}}</td>
+          <td [class]="starColor(currentSalad)">{{currentSalad.stars}}</td>
+          <td>
+            <button class="btn" (click)="editRecipe()">Update</button>
+            <hr>
+            <button class="btn" (click)="addRecipe()">Add a new recipe</button>
+          </td>
         </tr>
         <hr>
       </tbody>
     </table>
     </div>
-    <div class="col-6">
+    <div>
     <!-- <form class="form-group">
       <label for="soups">Enter a new soup recipe</label>
       <input class="form-control" id="soups" type="text">
