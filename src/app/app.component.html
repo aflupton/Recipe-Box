@@ -1,22 +1,50 @@
-<div>
+<div class="container">
   <div style="text-align:center">
     <h1 class="display-2">
       Welcome to {{userName}}'s {{title}} for {{month}}/{{day}}/{{year}}:
     </h1>
-    <h5>• {{subtitle}} •</h5>
-    <img width="800" alt="Turkish Salad" src="https://realfood.tesco.com/media/images/Turkish-salad-LGH-mini-460481bb-53d0-4542-8dd2-a8d753da7744-0-1400x919.jpg">
+    <h4>• {{subtitle}} •</h4>
+    <img width="600" alt="Turkish Salad" src="./assets/img/tabouleh.jpg">
+    <img width="600" alt="Meatballs" src="./assets/img/meatballs.jpg" >
   </div>
-  <div>
-    <ul>
-      <h1>List of recipes:</h1>
-      <h3>{{soupTitle}}</h3>
-      <li *ngFor="let currentSoup of soups"><a href="#">{{currentSoup.description}}</a></li>
-      <h3>{{meatTitle}}</h3>
-      <li *ngFor="let currentMeat of meats"><a href="#">{{currentMeat.description}}</a></li>
-      <h3>{{saladTitle}}</h3>
-      <li *ngFor="let currentSalad of salads"><a href="#">{{currentSalad.description}}</a></li>
-    </ul>
-    <form class="form-group">
+  <div class="col-6" id="bodyText">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Recipe Category</th>
+          <th>Recipe Name</th>
+          <th>Prep + Cook Time</th>
+          <th>Serves</th>
+        </tr>
+      </thead>
+      <hr>
+      <tbody>
+        <tr *ngFor="let currentSoup of soups">
+          <h3>{{soupTitle}}</h3>
+          <td><a href="#">{{currentSoup.description}}</a></td>
+          <td>{{currentSoup.prepTime}}</td>
+          <td>People: {{currentSoup.servesNumber}}</td>
+        </tr>
+        <hr>
+        <tr *ngFor="let currentMeat of meats">
+          <h3>{{meatTitle}}</h3>
+          <td><a href="#">{{currentMeat.description}}</a></td>
+          <td>{{currentMeat.prepTime}}</td>
+          <td>People: {{currentMeat.servesNumber}}</td>
+        </tr>
+        <hr>
+        <tr *ngFor="let currentSalad of salads">
+          <h3>{{saladTitle}}</h3>
+          <td><a href="#">{{currentSalad.description}}</a></td>
+          <td>{{currentSalad.prepTime}}</td>
+          <td>People: {{currentSalad.servesNumber}}</td>
+        </tr>
+        <hr>
+      </tbody>
+    </table>
+    </div>
+    <div class="col-6">
+    <!-- <form class="form-group">
       <label for="soups">Enter a new soup recipe</label>
       <input class="form-control" id="soups" type="text">
       <br>
@@ -28,7 +56,7 @@
       <br>
       <br>
       <button class="btn btn-secondary" type="submit" name="button">Submit</button>
-    </form>
+    </form> -->
   </div>
   <div class="footer">
     <p>© Andrew Lupton, 2018</p>

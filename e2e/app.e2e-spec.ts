@@ -9,6 +9,6 @@ describe('recipe-box App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to {{title}} for {{month}}/{{day}}/{{year}}');
+    expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });
