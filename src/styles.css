@@ -2,10 +2,10 @@ body {
   background-color: #faebd7;
   padding: 20px;
   padding-top: 30px;
+  padding-bottom: 0px;
 }
-
 .footer {
-  position: fixed;
+  position: static;
   left: 0;
   bottom: 0;
   width: 100%;

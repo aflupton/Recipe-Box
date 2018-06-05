@@ -1,9 +1,9 @@
 <div class="container">
-  <div style="text-align:center">
+  <div id="Header"style="text-align:center">
     <h2 class="display-3">
       Welcome to {{userName}}'s {{title}} for {{month}}/{{day}}/{{year}}:
     </h2>
-    <h4>• {{subtitle}} •</h4>
+    <h4 class="display-5">––{{subtitle}}––</h4>
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -23,9 +23,15 @@
       </div>
     </div>
   </div>
-
+<!-- above is the headers and images -->
+<!-- below is the bodytext and forms -->
   <div id="bodyText">
+    <form class="w-25">
+      <label for="userName">Alter user name</label>
+      <input [(ngModel)]="userName" type="text" name="userName">
+    </form>
     <table class="table">
+      <!-- table that displays recipe data and holds the input forms -->
       <thead>
         <tr>
           <th>Recipe Category</th>
@@ -36,23 +42,23 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <hr>
+      <br>
       <tbody>
+        <!-- category one -->
         <tr *ngFor="let currentSoup of soups">
           <h5>{{soupTitle}}</h5>
           <td><a href="#">{{currentSoup.description}}</a></td>
           <td>{{currentSoup.prepTime}}</td>
-          <td>People: {{currentSoup.servesNumber}}</td>
+          <td>{{currentSoup.servesNumber}}</td>
           <td
           [class]="starColor(currentSoup)">{{currentSoup.stars}}</td>
           <td>
             <button class="btn btn-light" (click)="editSoup(currentSoup)">Update This Item</button>
           </td>
         </tr>
-        <tr class="editRecipes">
-          <td></td>
+        <tr *ngIf="selectedSoup" class="editRecipes">
+          <td><label>{{currentSoup.soupTitle}}</label></td>
           <td class="form-group">
-            <label>{{currentSoup.soupTitle}}</label>
             <label>Edit name</label>
             <input [(ngModel)]="selectedSoup.description" class="w-100 form-control" type="text" name="name">
           </td>
@@ -68,21 +74,23 @@
             <label>Edit star rating</label>
             <input class="form-control" type="text" name="stars">
           </td>
+          <td><br><button class="btn btn-light"(click)="finishedEditingSoup">Done</button></td>
         </tr>
         <br>
+        <!-- category two -->
         <tr *ngFor="let currentMeat of meats">
           <h5>{{meatTitle}}</h5>
           <td><a href="#">{{currentMeat.description}}</a></td>
           <td>{{currentMeat.prepTime}}</td>
-          <td>People: {{currentMeat.servesNumber}}</td>
+          <td>{{currentMeat.servesNumber}}</td>
           <td
           [class]="starColor(currentMeat)">{{currentMeat.stars}}</td>
           <td>
             <button class="btn btn-light" (click)="editMeat(currentMeat)">Update This Item</button>
           </td>
         </tr>
-        <tr class="editRecipes">
-          <td></td>
+        <tr *ngIf="selectedMeat" class="editRecipes">
+          <td>{{currentMeat.meatTitle}}</td>
           <td class="form-group">
             <label>Edit name</label>
             <input [(ngModel)]="selectedMeat.description" class="w-100 form-control" type="text" name="name">
@@ -99,8 +107,10 @@
             <label>Edit star rating</label>
             <input [(ngModel)]="selectedMeat.stars" class="w-100 form-control" type="text" name="stars">
           </td>
+          <td><br><button class="btn btn-light"(click)="finishedEditingMeat">Done</button></td>
         </tr>
         <br>
+        <!-- category three -->
         <tr *ngFor="let currentSalad of salads">
           <h5>{{saladTitle}}</h5>
           <td><a href="#">{{currentSalad.description}}</a></td>
@@ -111,8 +121,8 @@
             <button class="btn btn-light" (click)="editSalad(currentSalad)">Update This Item</button>
           </td>
         </tr>
-        <tr class="editRecipes">
-          <td></td>
+        <tr *ngIf="selectedSalad" class="editRecipes">
+          <td>{{currentSalad.saladTitle}}</td>
           <td class="form-group">
             <label>Edit recipe name</label>
             <input [(ngModel)]="selectedSalad.description" class="w-100 form-control" type="text" name="name">
@@ -129,10 +139,12 @@
             <label>Edit star rating</label>
             <input [(ngModel)]="selectedSalad.stars" class="w-100 form-control" type="text" name="stars">
           </td>
+          <td><br><button class="btn btn-light"(click)="finishedEditingSalad">Done</button></td>
         </tr>
       </tbody>
     </table>
   </div>
+  <!-- below is the footer div -->
   <div class="footer">
     <p>© Andrew Lupton, 2018</p>
   </div>

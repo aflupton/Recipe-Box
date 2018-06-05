@@ -23,9 +23,12 @@ export class AppComponent {
     new Soup('Egyptian "Molokhia"', '25 minutes', 4, 3),
     new Soup('"Mercimek Çorbası" (Turkish red lentils)', '50 minutes', 4, 5)
   ];
-  selectedSoup: Soup = this.soups[0];
+  selectedSoup = null;
   editSoup(clickedSoup) {
     this.selectedSoup = clickedSoup;
+  };
+  finishedEditingSoup() {
+    this.selectedSoup = null;
   };
   meatTitle = 'Meats';
   meats: Meat[] = [
@@ -33,18 +36,24 @@ export class AppComponent {
     new Meat('Moroccan lamb shanks with pomegranate sauce', '5 hours', 4, 5),
     new Meat('French Boeuf Bourguignon with pasta', '2 hours', 6, 4)
   ];
-  selectedMeat: Meat = this.meats[0];
+  selectedMeat = null;
   editMeat(clickedMeat) {
     this.selectedMeat = clickedMeat;
+  };
+  finishedEditingMeat() {
+    this.selectedMeat = null;
   };
   saladTitle = 'Salads';
   salads: Salad[] = [
     new Salad('Lebanese Tabouleh with tomatoes', '45 minutes', 4, 5),
     new Salad('French lentil, beet, and egg salad (served warm)', '1 hour', 6, 4)
   ];
-  selectedSalad: Salad = this.salads[0];
+  selectedSalad = null;
   editSalad(clickedSalad) {
     this.selectedSalad = clickedSalad;
+  };
+  finishedEditingSalad() {
+    this.selectedSalad = null;
   };
   starColor(currentRecipe) {
     if (currentRecipe.stars === 3) {
