@@ -1,4 +1,7 @@
 # RecipeBox
+#### _Recipe-Box App, 6/5/18_
+#### _By Andrew Lupton_
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
 
@@ -25,3 +28,23 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Contact
+
+Send questions to mailto:aflupton@gmail.com.
+
+## Technologies Used
+
+  * _Javascript_
+  * _Angular_
+  * _Karma_
+  * _Jasmine_
+  * _Babel_
+  * _jQuery_
+  * _HTML5_
+  * _CSS3_
+
+### License
+* Published under the MIT License.
+
+Copyright (c) 2018 **_Andrew Lupton_**

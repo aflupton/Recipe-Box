@@ -1,20 +1,36 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div>
+  <div style="text-align:center">
+    <h1 class="display-2">
+      Welcome to {{userName}}'s {{title}} for {{month}}/{{day}}/{{year}}:
+    </h1>
+    <h5>• {{subtitle}} •</h5>
+    <img width="800" alt="Turkish Salad" src="https://realfood.tesco.com/media/images/Turkish-salad-LGH-mini-460481bb-53d0-4542-8dd2-a8d753da7744-0-1400x919.jpg">
+  </div>
+  <div>
+    <ul>
+      <h1>List of recipes:</h1>
+      <h3>{{soupTitle}}</h3>
+      <li *ngFor="let currentSoup of soups"><a href="#">{{currentSoup.description}}</a></li>
+      <h3>{{meatTitle}}</h3>
+      <li *ngFor="let currentMeat of meats"><a href="#">{{currentMeat.description}}</a></li>
+      <h3>{{saladTitle}}</h3>
+      <li *ngFor="let currentSalad of salads"><a href="#">{{currentSalad.description}}</a></li>
+    </ul>
+    <form class="form-group">
+      <label for="soups">Enter a new soup recipe</label>
+      <input class="form-control" id="soups" type="text">
+      <br>
+      <label for="meats">Enter a new meat recipe</label>
+      <input class="form-control" id="meats" type="text">
+      <br>
+      <label for="salads">Enter a new salad recipe</label>
+      <input class="form-control" id="salads" type="text">
+      <br>
+      <br>
+      <button class="btn btn-secondary" type="submit" name="button">Submit</button>
+    </form>
+  </div>
+  <div class="footer">
+    <p>© Andrew Lupton, 2018</p>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-

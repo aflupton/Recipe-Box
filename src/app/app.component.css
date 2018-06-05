@@ -1,0 +1,17 @@
+body {
+  padding-left: 40px;
+  background-color: #faebd7;
+}
+form {
+  padding: 20px;
+}
+h3 {
+  font-style: italic;
+}
+.footer {
+  position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   text-align: center;
+}
